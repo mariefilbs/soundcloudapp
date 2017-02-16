@@ -3,14 +3,40 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Cool Project</title>
+    <title>SoundCloud App</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <div class="container">
-      <p>Welcome to your life.</p>
+
+    <div class = "container">
+
+    <div class="heading">
+      <h3>Dance Machine</h3>
     </div>
+
+    <div class="music">
+      <audio controls = "controls">
+      </audio>
+    </div>
+
+
+<!--user types in song/artist and search button -->
+    <form class = "search-box">
+      <div class = "search">
+        <input class = "artist-search" placeholder="Search for Artist">
+        <input type = "submit" value = "Search" class = "button"/>
+      </div>
+    </form>
+
+    <div class="search-results">
+      <div class = "results">
+        <p>Search Results:</p>
+      </div>
+    </div>
+
+  </div>
+
     <script src="js/bundle.js"></script>
   </body>
 </html>
