@@ -2,8 +2,29 @@
   box-sizing: border-box;
 }
 
+.heading {
+  text-align: center;
+}
+
+audio {
+  margin-left: 38%;
+}
+
+.search {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.search-results {
+  text-align: center;
+}
+
 .results-box {
   height: 200px;
   width: 205px;
   display: inline-block;
+}
+
+.secret {
+  display: none;
 }
