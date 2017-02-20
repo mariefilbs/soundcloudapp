@@ -20,7 +20,7 @@ function playMusic (event) {
   var field = event.currentTarget.dataset;
   var play = `
     <audio class="controls" controls="controls" autoplay>
-      <source src="${event.currentTarget.dataset.songsource}?client_id=${clientID}" type="audio/${field.formatsource}">
+      <source src="${field.songsource}?client_id=${clientID}" type="audio/${field.formatsource}">
     </audio>`;
 
   $(".player").html(play);
