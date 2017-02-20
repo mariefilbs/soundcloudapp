@@ -80,8 +80,14 @@ p {
   width: 205px;
   padding-right: 25px;
   display: inline-block;
-
+  -webkit-transition: margin 0.5s ease-out;
+    -moz-transition: margin 0.5s ease-out;
 }
+
+.song:hover {
+  margin-top: 5px;
+}
+
 
 .secret {
   display: none;
@@ -95,4 +101,7 @@ p {
    width: 100%;
    background: black;
    text-align: center;
+   color: white;
+   padding-top: 7px;
+   padding-bottom: 7px;
 }
