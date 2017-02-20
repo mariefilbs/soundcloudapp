@@ -1,11 +1,12 @@
 import $ from 'jquery';
 import {clientID} from './token';
 
-$.ajaxSetup({
-  data: {
-    client_id: clientID
-  }
-});
+
+// $.ajaxSetup({
+//   data: {
+//     client_id: clientID
+//   }
+// });
 
 function searchMusic (searchTracks) {
   return $.ajax({
@@ -13,7 +14,8 @@ function searchMusic (searchTracks) {
     //cached: false,
     data: {
       q:`${searchTracks}`,
-      limit: 10,
+      limit: 9,
+      client_id: clientID
     }
   });
 };
