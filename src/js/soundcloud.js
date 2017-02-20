@@ -1,19 +1,22 @@
-import $ from "jquery";
-import { clientID } from "./token.js";
+import $ from 'jquery';
+import {clientID} from './token';
 
+$.ajaxSetup({
+  data: {
+    client_id: clientID
+  }
+});
 
-
-function searchMusic (query) {
+function searchMusic (searchTracks) {
   return $.ajax({
-     url: `https://api.soundcloud.com/tracks?client_id=${clientID}`,
- success: console.log,
+    url: "https://api.soundcloud.com/tracks",
+    //cached: false,
     data: {
-         q: query,
-
+      q:`${searchTracks}`,
+      limit: 10,
     }
   });
-}
-
-
+};
+console.log(searchMusic());
 
 export {searchMusic};

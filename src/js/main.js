@@ -1,16 +1,19 @@
-import $ from "jquery";
-import {searchMusic} from "./soundcloud.js";
-import {displayResults} from "./template.js";
+import $ from 'jquery';
 
+import {searchMusic} from './soundcloud';
+import {displayResults, playMusic} from './template';
 
-
-
-//connects the search button
-function searchButton (event) {
-  var input = $(".artist-search").val();
-  searchMusic(input).then(displayResults);
-  event.preventDefault();
+function searchedSongs (songs) {
+  var html = songs.map(displayResults);
+  $(".results").html(html);
+  $(".song").click(playMusic);
 };
 
-//had to set the 'prevent default' above to keep page from refreshing
-$(".search-box").submit(searchButton);
+function getAPIdata (event) {
+  event.preventDefault();
+  var searchTracks = $("#search").val();
+  var result = searchMusic(searchTracks).then(searchedSongs);
+  // console.log(result)
+}
+
+$("#search-button").click(getAPIdata);

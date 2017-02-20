@@ -3,38 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoundCloud App</title>
-    <link rel="stylesheet" href="css/normalize.css">
+    <title>SoundCloud Music App</title>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
 
-    <div class = "container">
+    <div class="container">
 
-    <div class="heading">
-      <h3>Marie's Dance Machine</h3>
-    </div>
+      <h1>Marie's Dance Machine</h1>
 
-<!-- Audio section -->
-    <div class="music"></div>
+      <div class="now-playing"></div>
 
-
-<!--user types in song/artist and search button -->
-    <form class = "search-box">
-      <div class = "search">
-        <input class = "artist-search" placeholder="Search for Artist">
-        <input type = "submit" value = "Let's dance!" class = "button"/>
+      <div class="player">
+        <!--<audio class="controls" controls="controls"></audio>-->
       </div>
-    </form>
 
- <!--search results generated here -->
-    <div class="search-results">
-      <div class = "results">
-        <p>Search results: </p>
-      </div>
+      <form class="search-box">
+        <input type="text" id="search" placeholder="Artists / Songs">
+        <button id="search-button">Let's Dance!</button>
+      </form>
+
+      <div class="results"></div>
+
     </div>
-
-  </div>
 
     <script src="js/bundle.js"></script>
   </body>

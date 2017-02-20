@@ -1,36 +1,37 @@
-import $ from "jquery";
+import $ from 'jquery';
+import {clientID} from './token';
 
+function displayResults (song) {
+  console.log(song)
+  return `
+    <div class="song" data-songsource="${song.stream_url}" data-formatsource="${song.original_format}"
+    data-artistsource="${song.user.username}"
+    data-titlesource="${song.title}">
+      <img class="image" src="${song.artwork_url || song.user.avatar_url}"/>
+      <div class="title">${song.title}</div>
+      <div class="artist">${song.user.username}</div>
+    </div>`;
 
-function displayResults (data) {
-//console.log(data);
-  data.forEach(function(item){
-    console.log(item)
-    var resultsHtml = `
-    <div class="results-box">
-      <img class="image-stream" src = ${item.artwork_url || item.user.avatar_url}/>
-      <div class = "song-name">
-        <span class = "song-title"> ${item.title} </span>
-      </div>
-      <div class = "artist-name">
-        <span class = "artist"> ${item.user.username} </span>
-      </div>
-      <div class="secret">${item.stream_url}</div>
-    </div>`
-
-    $(".search-results").append(resultsHtml);
-
-
-  })
-
-  $(".image-stream").click(playMusic);
-
-  function playMusic (event) {
-    console.log("apples");
-    console.log($(".secret").html());
-    ///HINT:currentTarget -->set as a variable. --> currentTarget.html(), zoom or get the right div; that's where the .children comes into play. get your shit together.
-  }
+  $(".results").append(displayResults);
 };
 
-export { displayResults };
+function playMusic (event) {
+  console.log(event);
+  var field = event.currentTarget.dataset;
+  var play = `
+    <audio class="controls" controls="controls" autoplay>
+      <source src="${event.currentTarget.dataset.songsource}?client_id=${clientID}" type="audio/${field.formatsource}">
+    </audio>`;
 
-//make an empty array to store the changing parts to use globally and pass that info into other functions.
+  $(".player").html(play);
+
+  var nowPlay = `
+  <p>Now Playing: <strong>
+      <span class="song-artist">${field.artistsource}</span> -
+      <span class="song-title">${field.titlesource}</span>
+  </strong></p>`;
+
+  $(".now-playing").html(nowPlay);
+};
+
+export {displayResults, playMusic};
